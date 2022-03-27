@@ -20,7 +20,7 @@ The project follows the follow steps:
 
 #### 1.1 Scope 
 ##### 1.1.1 Format of data
-- SAS or CSV file
+- CSV file
 
 ##### 1.1.2 Programing language, library and frameworks
 - Python: language using for processing data, including:
@@ -31,10 +31,10 @@ The project follows the follow steps:
 #### 1.2.1 Dataset 
 | Dataset | Format | Description |
 | -------- | -------- | -------- |
-| [I94 Immigration Data](https://www.trade.gov/national-travel-and-tourism-office)     | SAS     | This data is collected from the [US National Tourism and Trade Office](https://www.trade.gov/). This dataset contains immigration data of individuals coming to USA in the year 2016. A data dictionary is included in the workspace. immigration_data_sample.csv contains the sample data.     |
-| [World Temperature Data](https://public.opendatasoft.com/explore/dataset/us-cities-demographics/information/) | CSV    | This dataset is taken from [Kaggle](https://www.kaggle.com/). This dataset contains information of temperatures by city for each country.|
-| [U.S. City Demographic Data](https://public.opendatasoft.com/explore/dataset/us-cities-demographics/export/)  | CSV    | This data is collected from [OpenSoft](https://public.opendatasoft.com/). This dataset contains information about the demographics of all US cities and census-designated places with a population greater or equal to 65,000. This data comes from the US Census Bureau's 2015 American Community Survey.|
-| [Airport Code Data](https://datahub.io/core/airport-codes#data)| CSV    | This data is taken from [Our Airports](http://ourairports.com/data/). It is a simple table of airport codes and corresponding cities. It contains the list of all airport codes, the attributes are identified in datapackage description. Some of the columns contain attributes identifying airport locations, other codes (IATA, local if exist) that are relevant to identification of an airport.|
+| [deals Dataset](DE_assignment/data/deals.csv)     | SAS     | This data is collected from the [US National Tourism and Trade Office](https://www.trade.gov/). This dataset contains immigration data of individuals coming to USA in the year 2016. A data dictionary is included in the workspace. immigration_data_sample.csv contains the sample data.     |
+| [invites Dataset](https://public.opendatasoft.com/explore/dataset/us-cities-demographics/information/) | CSV    | This dataset is taken from [Kaggle](https://www.kaggle.com/). This dataset contains information of temperatures by city for each country.|
+| [offers Dataset](https://public.opendatasoft.com/explore/dataset/us-cities-demographics/export/)  | CSV    | This data is collected from [OpenSoft](https://public.opendatasoft.com/). This dataset contains information about the demographics of all US cities and census-designated places with a population greater or equal to 65,000. This data comes from the US Census Bureau's 2015 American Community Survey.|
+| [orders Dataset](https://datahub.io/core/airport-codes#data)| CSV    | This data is taken from [Our Airports](http://ourairports.com/data/). It is a simple table of airport codes and corresponding cities. It contains the list of all airport codes, the attributes are identified in datapackage description. Some of the columns contain attributes identifying airport locations, other codes (IATA, local if exist) that are relevant to identification of an airport.|
 
 ##### 1.2.2 Gathering data
 
