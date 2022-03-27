@@ -1,6 +1,6 @@
 # Data Engineering Assignment
 
-### Data Engineering Capstone Project
+### Hoa Han - Junior Data Engineer
 
 #### Project Summary
 In this assignment, I will base on data of Immigration in US and other related datasources like temperature, population etc. to design a data warehouse schema shipping with an ETL pipeline. This data warehouse purpose is to provide data for analytic teams to get some insight from the data such as:
