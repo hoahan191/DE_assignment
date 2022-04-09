@@ -3,11 +3,7 @@
 ### Hoa Han - Junior Data Engineer
 
 #### Project Summary
-In this assignment, I will base on data of Immigration in US and other related datasources like temperature, population etc. to design a data warehouse schema shipping with an ETL pipeline. This data warehouse purpose is to provide data for analytic teams to get some insight from the data such as:
-
-+ Which time of the year have most people immigrating to New York State?
-+ Find out the average sex ratio of top ten states with the most immigrants in 2016
-+ Find out immigrants coming from hot country (temp > 30°C)
+In this assignment, 
 
 The project follows the follow steps:
 * Step 1: Scope the Project and Gather Data
@@ -15,6 +11,7 @@ The project follows the follow steps:
 * Step 3: Define the Data Model
 * Step 4: Run ETL to Model the Data
 * Step 5: Complete Project Write Up
+
 
 ### Step 1: Scope the Project and Gather Data
 
@@ -39,3 +36,12 @@ The project follows the follow steps:
 ##### 1.2.2 Gathering data
 After explorating invites data, only column **invite_first_viewed_at** has 62% nan value
 
+## Requirements
+However, we do have a couple of requirements:
+- Prepare your solution in a local git repo on your computer, commiting code as if you were working as part of a real team.
+- Write a README.md that explains your solution, so we can focus on the less obvious parts during the discussion.
+- The system should be designed to run automatically, without manual input.
+- Do have a database where you load the raw data into, do transformations in and feed the report form
+- Data quality must be tested. Requiring manual input in case of a failing data quality check is fine.
+- Use Apache Airflow for orchestration, following relevant best practices.
+- NICE TO HAVE (not mandatory): Deploy your work in a cloud environment. Deployment automation and infrastructure as code are not required.
