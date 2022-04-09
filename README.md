@@ -37,7 +37,5 @@ The project follows the follow steps:
 | [orders](https://github.com/hoahan191/DE_assignment/blob/main/data/orders.csv)| CSV    | This data is taken from |
 
 ##### 1.2.2 Gathering data
+After explorating invites data, only column **invite_first_viewed_at** has 62% nan value
 
-For **I94 Immigration Data**, in order to reading faster, we will convert all data to **parquet format**
-
-After explorating SAS data, only **data of June** have difference columns so we will read June's data as a different dataframe then join with the rest.
