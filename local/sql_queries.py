@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS staging_offers (
 )
 """)
 
-# CREATE DATA WAREHOUSE (DW) TABLES
+# CREATE TABLES
 fact_sales_table_create = ("""
 CREATE TABLE IF NOT EXISTS fact_sales (
     sales_id            int IDENTITY(0, 1) PRIMARY KEY,
@@ -84,18 +84,51 @@ CREATE TABLE IF NOT EXISTS fact_sales (
 """)
 
 dim_date_table_create = ("""
-CREATE TABLE IF NOT EXISTS deals (
-    deal_id                         int     NOT NULL PRIMARY KEY,
-    invite_id                       int,
-    deal_created_at                 timestamp,
-    deal_status                     varchar(50),
-    deal_material_id                int,
-    deal_quantity_kg                decimal(18, 1),
-    deal_price_kg_nationalcurrency  decimal(18, 2),
-    deal_valid_from                 timestamp,
-    deal_valid_to                   timestamp
+CREATE TABLE IF NOT EXISTS dim_date (
+    date                         int     NOT NULL PRIMARY KEY,
+    week                       int,
+    month                timestamp,
+    quarter                     varchar(50),
+    year                int,
+    weekdat                decimal(18, 1),
 )
 """)
+
+
+# FIND SONGS
+fact_sales_data_query = (""" SELECT --sales_id,
+	                                ofs.offer_id as sales_key,
+	                                TO_DATE(order_created_at date) as sales_date, -- Datetime to Date
+	                                order_quantity_kg as sales_quantity,
+	                                offer_national_currency as material_id,
+	                                CASE 
+		                                WHEN ord.deal_id not null THEN "ORDER" --- ???
+		                                WHEN invite_state not null THEN 'INVITE'
+		                                WHEN deal_status not null THEN 'DEAL'
+		                                WHEN offer_state not null THEN 'OFFER'
+		                                ELSE NULL
+	                                END as sales_stage,
+	                                order_price_kg_nationalcurrency as order_price,
+	                                deal_price_kg_nationalcurrency as deal_price,
+	                                unit_price_nationalcurrency as offer_price,
+	                                offer_national_currency as currency,
+	                                CASE 
+		                                WHEN ord.deal_id not null THEN "ORDER" --- ??? NULL
+		                                WHEN invite_state not null THEN CONCAT('INVITE_', invite_state)
+		                                WHEN deal_status not null THEN CONCAT('DEAL_', deal_status)
+		                                WHEN offer_state not null THEN CONCAT('OFFER_', offer_state)
+		                                ELSE NULL
+	                                END as sales_status
+                            FROM public.offers ofs 
+                            LEFT JOIN public.invites ivt on ofs.offer_id = ivt.offer_id
+                            LEFT JOIN public.deals dls on ivt.invite_id = dls.invite_id
+                            LEFT JOIN public.orders ord on dls.deal_id = ord.deal_id
+                        """)
+
+
+# INSERT RECORDS
+fact_sales_table_insert = ("INSERT INTO fact_sales\n" + fact_sales_data_query)
+dim_date_table_insert = ()
 
 # QUERY LISTS
 create_table_queries = [staging_orders_table_create, staging_deals_table_create, staging_invites_table_create, staging_offers_table_create, fact_sales_table_create, dim_date_table_create]
