@@ -17,7 +17,7 @@ invites_table_drop = "DROP TABLE IF EXISTS invites;"
 offers_table_drop = "DROP TABLE IF EXISTS offers;"
 
 
-# CREATE TABLES
+# CREATE STAGING TABLES
 
 staging_orders_table_create= ("""
 CREATE TABLE IF NOT EXISTS staging_orders (

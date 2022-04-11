@@ -85,12 +85,12 @@ CREATE TABLE IF NOT EXISTS fact_sales (
 
 dim_date_table_create = ("""
 CREATE TABLE IF NOT EXISTS dim_date (
-    date                         int     NOT NULL PRIMARY KEY,
-    week                       int,
-    month                timestamp,
-    quarter                     varchar(50),
+    date                date NOT NULL PRIMARY KEY,
+    week                varchar(8),
+    month               varchar(5),
+    quarter             varchar(2),
     year                int,
-    weekdat                decimal(18, 1),
+    weekdate            vatchar(5),
 )
 """)
 
@@ -114,7 +114,7 @@ fact_sales_data_query = (""" SELECT --sales_id,
 	                                offer_national_currency as currency,
 	                                CASE 
 		                                WHEN ord.deal_id not null THEN "ORDER" --- ??? NULL
-		                                WHEN invite_state not null THEN CONCAT('INVITE_', invite_state)
+		                                WHEN invite_invitation_state not null THEN CONCAT('INVITE_', invite_invitation_state)
 		                                WHEN deal_status not null THEN CONCAT('DEAL_', deal_status)
 		                                WHEN offer_state not null THEN CONCAT('OFFER_', offer_state)
 		                                ELSE NULL
